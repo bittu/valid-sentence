@@ -1,0 +1,99 @@
+main {
+  width: 100%;
+}
+section {
+  font-size: 2.5em;
+  padding: 0 1em;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+label span {
+  font-size: 0.4em;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.input {
+  position: relative;
+  color: rgb(227, 226, 230);
+  width: 100%;
+}
+
+.input input {
+  display: block;
+  margin: 0;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #D0BCFF;
+  background-color: transparent;
+  color: inherit;
+  text-overflow: ellipsis;
+  font-size: 1em;
+  line-height: 1.75;
+  border-radius: 0;
+  outline: none;
+}
+
+.input::after {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  right: 0;
+  transform: translate(0,-50%);
+}
+.input.valid {
+  background-color: #D0BCFF;
+  color: #381E72;
+}
+.input.valid input {
+  border-bottom: 2px solid #381E72;
+}
+.input.valid::after {
+  content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20130.2%20130.2%22%3E%0A%20%20%3Cpolyline%20class%3D%22path%20check%22%20stroke%3D%22%23381E72%22%20stroke-dashoffset%3D%22-100%22%20fill%3D%22none%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20points%3D%22100.2%2C40.2%2051.5%2C88.8%2029.8%2C67.5%20%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+.input.invalid {
+  background-color: #F2B8B5;
+  color: #601410;
+}
+.input.invalid input {
+  border-bottom: 2px solid #601410;
+}
+.input.invalid::after {
+  content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20130.2%20130.2%22%3E%0A%20%20%3Cline%20class%3D%22path%20line%22%20fill%3D%22none%22%20stroke%3D%22%23601410%22%20stroke-width%3D%2210%22%20stroke-dashoffset%3D%221000%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2234.4%22%20y1%3D%2237.9%22%20x2%3D%2295.8%22%20y2%3D%2292.3%22%2F%3E%0A%20%20%3Cline%20class%3D%22path%20line%22%20fill%3D%22none%22%20stroke%3D%22%23601410%22%20stroke-width%3D%2210%22%20stroke-dashoffset%3D%221000%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2295.8%22%20y1%3D%2238%22%20x2%3D%2234.4%22%20y2%3D%2292.2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.errorMessage {
+  padding: 0.4em 3.5em 0 0;
+  width: 100%;
+  color: #eb7e7f;
+  font-style: italic;
+  font-size: 0.4em;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.errorMessage.show {
+  opacity: 1;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
